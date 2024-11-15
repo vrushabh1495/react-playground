@@ -1,30 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
-
-/*
-* Header
-    - Logo
-    - Nav Item
-*/
-const Header = () => {
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&sf=&txt_keyword=All"></img>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-
 const restaurants_list = [
     {
       "info": {
@@ -2019,40 +1992,5 @@ const restaurants_list = [
       }
     }
   ]
-const RestaurantCard = ({resData}) => {
-    const {cloudinaryImageId, name, cuisines, avgRating,costForTwo, sla} = resData?.info
-    return(
-        <div className="restaurant-card">
-            <img className="restaurant-image" alt="restaurant-image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
-            <h3> {name} </h3>
-            <h5>{cuisines.join(", ")}</h5>
-            <h4>{avgRating}</h4>
-            <h4>{costForTwo}</h4>
-            <h4>{sla.deliveryTime} mins</h4>
-        </div>
-    )
-}
-const Body = () => {
-    return(
-        <div className="body">
-            <div className="search"> Search</div>
-            <div className="restaurant-container">
-                {
-                    restaurants_list.map((restaurant)=>(<RestaurantCard key={restaurant.info.id} resData={restaurant}/>))
-                }
-            </div>
-        </div>
-    )
-}
-const AppLayout = () => {
-    return(
-        <div className="app">
-            <Header></Header>
-            <Body></Body>
-        </div>
-    )
-}
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
+export default restaurants_list;
